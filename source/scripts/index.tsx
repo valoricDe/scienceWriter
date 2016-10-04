@@ -5,7 +5,7 @@ import App from './components/app';
 
 import createStores from './main/create-stores';
 
-const stores: Store.IStores = createStores();
+const stores: Stores.IStores = createStores();
 
 render(
 	<App {...stores} />,

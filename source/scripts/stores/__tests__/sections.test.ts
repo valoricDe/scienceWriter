@@ -1,4 +1,4 @@
-import Tick from '../tick';
+/*import Tick from '../tick';
 
 describe('Tick store', () => {
 	const tick: Store.Tick.ITick = new Tick();
@@ -20,3 +20,4 @@ describe('Tick store', () => {
 		expect(tick.value).toBe(-1);
 	});
 });
+*/

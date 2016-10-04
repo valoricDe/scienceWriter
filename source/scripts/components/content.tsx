@@ -1,37 +1,19 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
-
-import Center from './common/center';
-
-import Label from './content/label';
-import Button from './content/button';
-import Footer from './content/footer';
+import SectionComponent from "./content/sectionComponent";
 
 @observer
 export default class Content extends Component<Props.Content.IContent, void> {
-	private handleIncrement: Types.THandle = (): void => {
-		this.props.tick.increment();
-	};
 
-	private handleDecrement: Types.THandle = (): void => {
-		this.props.tick.decrement();
-	};
 
 	public render(): JSX.Element {
+		var sections = this.props.sections.sections.map((s, i) => {
+			return <SectionComponent key={s.id} index={i} section={s} {...this.props} />
+		});
+
 		return (
 			<div className='content'>
-				<Center>
-					<Label value={this.props.tick.value} />
-					<Button
-						type='increment'
-						caption='++'
-						onClick={this.handleIncrement} />
-					<Button
-						type='decrement'
-						caption='--'
-						onClick={this.handleDecrement} />
-					<Footer />
-				</Center>
+				{sections}
 			</div>
 		);
 	};

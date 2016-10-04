@@ -5,10 +5,9 @@
 		"target": "es6",
 		"jsx": "react",
 		"experimentalDecorators": true,
-		"strictNullChecks": true,
 		"sourceMap": true,
 		"allowSyntheticDefaultImports": true,
-		"noImplicitAny": true,
+
 		"noFallthroughCasesInSwitch": true,
 		"moduleResolution": "node",
 		"types": [
@@ -21,6 +20,7 @@
 	"exclude": [
 		"node_modules",
 		"build",
-		"misc"
+		"misc",
+        "vendor"
 	]
 }

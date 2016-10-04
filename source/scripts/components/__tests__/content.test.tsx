@@ -6,7 +6,7 @@ import Content from '../content';
 import createStores from '../../main/create-stores';
 
 describe('Content component', () => {
-	const stores: Store.IStores = createStores();
+	const stores: Stores.IStores = createStores();
 	const content: ShallowWrapper<Props.Content.IContent, {}> = shallow((<Content {...stores} />));
 
 	const button: ShallowWrapper<any, {}> = content.find('Button');

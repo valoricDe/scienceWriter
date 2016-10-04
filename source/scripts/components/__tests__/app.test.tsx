@@ -6,7 +6,7 @@ import App from '../app';
 import createStores from '../../main/create-stores';
 
 describe('App component', () => {
-	const stores: Store.IStores = createStores();
+	const stores: Stores.IStores = createStores();
 	const app: ShallowWrapper<Props.IApp, {}> = shallow((<App {...stores} />));
 
 	it('render app wrapper', () => {
