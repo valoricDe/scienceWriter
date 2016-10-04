@@ -13,7 +13,7 @@ module.exports = (project, paths) => {
 		output: {
 			path: paths.build.path,
 			filename: paths.build.files.script,
-			publicPath: '/',
+			publicPath: '',
 		},
 		resolve: {
 			extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js', '.scss'],
