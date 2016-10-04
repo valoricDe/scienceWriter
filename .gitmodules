@@ -3,7 +3,7 @@
 	url = https://github.com/valtlfelipe/TinyMCE-LocalAutoSave.git
 [submodule "vendor/asciimath-tinymce4"]
 	path = vendor/asciimath-tinymce4
-	url = git@github.com:TuningGuide/asciimath-tinymce4.git
+	url = https://github.com/TuningGuide/asciimath-tinymce4.git
 [submodule "vendor/tinyMCE-mention"]
 	path = vendor/tinyMCE-mention
-	url = git@github.com:TuningGuide/tinyMCE-mention.git
+	url = https://github.com/TuningGuide/tinyMCE-mention.git
