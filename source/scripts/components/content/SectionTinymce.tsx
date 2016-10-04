@@ -46,7 +46,7 @@ export default class SectionTinymce extends React.Component<ISectionTinymce, {}>
             ],
 						external_plugins: {
 							//'asciimath4': '/vendor/asciimath-tinymce4/plugin.js',
-							'mention': '/vendor/tinyMCE-mention/mention/plugin.js',
+							'mention': 'vendor/tinyMCE-mention/mention/plugin.js',
 							//'localautosave' : '/vendor/TinyMCE-LocalAutoSave/localautosave/plugin.min.js'
 						},
 						toolbar: ' styleselect formatselect | bold italic underline | alignleft aligncenter alignjustify | bullist numlist | outdent indent | blockquote | removeformat | table hr link unlink pagebreak codesample asciimath4 | code visualblocks visualchars | undo redo fullscreen localautosave | save',
