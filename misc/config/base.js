@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const WebpackNotifier = require('webpack-notifier');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = (project, paths) => {
 	return {
@@ -50,6 +51,14 @@ module.exports = (project, paths) => {
 			new WebpackNotifier({
 				title: project.title,
 			}),
+			new CopyWebpackPlugin([
+				{ from: 'vendor/asciimath-tinymce4/plugin.js', to: 'vendor/asciimath-tinymce4/plugin.js' },
+				{ from: 'vendor/TinyMCE-LocalAutoSave/localautosave/plugin.js', to: 'vendor/TinyMCE-LocalAutoSave/localautosave/plugin.js' },
+				{ from: 'vendor/tinyMCE-mention/mention/plugin.js', to: 'vendor/tinyMCE-mention/mention/plugin.js' },
+				{ from: './node_modules/tinymce/plugins', to: 'js/plugins' },
+				{ from: './node_modules/tinymce/themes', to: 'js/themes' },
+				{ from: './node_modules/tinymce/skins', to: 'js/skins' }
+			]),
 		],
 	};
 };
