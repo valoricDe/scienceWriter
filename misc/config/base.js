@@ -52,9 +52,9 @@ module.exports = (project, paths) => {
 				title: project.title,
 			}),
 			new CopyWebpackPlugin([
-				{ from: 'vendor/asciimath-tinymce4/plugin.js', to: 'vendor/asciimath-tinymce4/plugin.js' },
-				{ from: 'vendor/TinyMCE-LocalAutoSave/localautosave/plugin.js', to: 'vendor/TinyMCE-LocalAutoSave/localautosave/plugin.js' },
-				{ from: 'vendor/tinyMCE-mention/mention/plugin.js', to: 'vendor/tinyMCE-mention/mention/plugin.js' },
+				{ from: 'vendor/asciimath-tinymce4/plugin.js', to: 'js/vendor/asciimath-tinymce4/plugin.js' },
+				{ from: 'vendor/TinyMCE-LocalAutoSave/localautosave/plugin.js', to: 'js/vendor/TinyMCE-LocalAutoSave/localautosave/plugin.js' },
+				{ from: 'vendor/tinyMCE-mention/mention/plugin.js', to: 'js/vendor/tinyMCE-mention/mention/plugin.js' },
 				{ from: './node_modules/tinymce/plugins', to: 'js/plugins' },
 				{ from: './node_modules/tinymce/themes', to: 'js/themes' },
 				{ from: './node_modules/tinymce/skins', to: 'js/skins' }
