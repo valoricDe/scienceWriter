@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = html => {
 	return {
@@ -37,6 +38,12 @@ module.exports = html => {
 					},
 				})
 			),
+			new CopyWebpackPlugin([
+				{ from: 'vendor', to: 'vendor' },
+				{ from: './node_modules/tinymce/plugins', to: 'js/plugins' },
+				{ from: './node_modules/tinymce/themes', to: 'js/themes' },
+				{ from: './node_modules/tinymce/skins', to: 'js/skins' }
+			])
 		],
 	};
 };
