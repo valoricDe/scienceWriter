@@ -220,7 +220,7 @@ export default class SectionTinymce extends React.Component<ISectionTinymce, {}>
           }}
 				onChange={(e) => {
 					let editor = e.target;
-					if(!!headlineTagNames.indexOf(editor.selection.getNode().tagName) && !editor.selection.getNode().querySelector('a')) {
+					if(headlineTagNames.indexOf(editor.selection.getNode().tagName) >= 0 && !editor.selection.getNode().querySelector('a')) {
 						let a = document.createElement("a");
 						a.title = a.id = 'subsection-'+camelize(editor.selection.getNode().textContent);
 						a.className = 'mce-item-anchor';

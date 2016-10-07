@@ -46,7 +46,7 @@ export default class App extends Component<Props.IApp, void> {
 						<AppBar title="ScienceWriter" style={{marginBottom: '10px', backgroundColor: '#2d8ac7'}} />
 						<Sidebar {...this.props}/>
 					</Drawer>
-					<div style={{marginLeft: '256px'}}>
+					<div className="content__wrapper">
 						<AppBar title="" showMenuIconButton={false} style={{backgroundColor: '#2d8ac7'}}/>
 						{this.renderDevTools()}
 						<Content {...this.props} />

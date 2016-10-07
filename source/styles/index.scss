@@ -1,14 +1,14 @@
 @import 'partials/mixins';
 @import 'partials/variables';
 @import 'partials/content';
+@import 'partials/common';
+@import 'partials/autocomplete';
+@import 'partials/tinymce';
 
 html,
 body,
-body > div,
 .wrapper {
-	height: 100%;
 	margin: 0;
-	width: 100%;
 }
 
 .wrapper {
@@ -24,4 +24,12 @@ body > div,
 	display: flex;
 	height: 100%;
 	justify-content: center;
+}
+
+h3 {
+	font-size: 1em;
+	font-weight: normal;
+	margin-block-start: 1em;
+	margin-block-end: .3em;
+	text-decoration: underline;
 }

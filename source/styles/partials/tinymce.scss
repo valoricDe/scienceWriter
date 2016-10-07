@@ -1,0 +1,66 @@
+/*.mce-tinymce.mce-container.mce-panel {
+	border: none !important;
+}
+
+.mce-tinymce.mce-tinymce-inline.mce-container.mce-panel.mce-floatpanel {
+	margin-top: -15px;
+	left: 0 !important;
+	margin-left: 256px !important;
+	width:100% !important;
+}*/
+
+/*.mce-tinymce.mce-container.mce-panel {
+	border: none !important;
+}
+
+.mce-container-body {
+	.mce-menubar.mce-toolbar {
+		position: fixed;
+		top: -2px;
+		left: 336px;
+		z-index: 1201;
+		width: 100%;
+		border: 0 solid #cacaca;
+		border-width: 0px 0px 1px;
+		background-color: #f0f0f0;
+	}
+
+	.mce-toolbar-grp {
+		padding: 0;
+		border: 0 solid #cacaca;
+		border-width: 0px 0px 1px;
+		background-color: #f0f0f0;
+		position: fixed;
+		top: 0px;
+		left: 256px;
+		z-index: 1200;
+	}
+}*/
+
+.content .mce-edit-focus {
+	outline: none;
+}
+
+figure.image {
+	display: inline-block;
+	border: 1px solid gray;
+	margin: 0 2px 0 1px;
+	background: #f5f2f0;
+}
+
+figure.align-left {
+	float: left;
+}
+
+figure.align-right {
+	float: right;
+}
+
+figure.image img {
+	margin: 8px 8px 0 8px;
+}
+
+figure.image figcaption {
+	margin: 6px 8px 6px 8px;
+	text-align: center;
+}

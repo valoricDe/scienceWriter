@@ -2,14 +2,60 @@
 @import 'mixins';
 
 .content {
-	height: 100%;
-	width: 100%;
+	padding: 15px;
+
+	&__wrapper {
+		margin-left: 256px;
+	}
+
+	&__sectionWrapper:not(:last-child) {
+		margin-bottom: 1em;
+		box-shadow: none !important;
+		border: 2px solid rgb(232, 232, 232);
+		border-radius: 3px !important;
+	}
+
+	&__newSectionDialog {
+		min-width: 180px;
+		float: none;
+	}
+
+	&__newSectionDropzone {
+		cursor: pointer;
+		box-sizing: border-box;
+		max-height: 200px;
+		padding: 25px;
+		border: 2px dashed rgb(102, 102, 102);
+		border-radius: 5px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__menusort {
+		box-shadow: 0 5px 5px -5px rgba(0, 0, 0, .2), 0 -5px 5px -5px rgba(0, 0, 0, .2);
+		span {
+			cursor: row-resize !important;
+		}
+	}
+
+	&__customToolbar, &__customToolbarTitle, &__customToolbarTitleRight {
+		height: 46px !important;
+	}
+
+	&__customToolbarTitle, &__customToolbarTitleRight {
+		padding-top: 2px !important;
+		line-height: 46px !important;
+	}
+
+	&__customToolbarTitleRight {
+		padding-right: 0px !important;
+	}
 
 	&__button {
 		border: none;
 		border-radius: 5px;
 		box-shadow: none;
-		cursor: pointer;
 		font-size: 20px;
 		line-height: 1.8;
 		padding: 10px 45px;
