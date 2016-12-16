@@ -10,6 +10,8 @@ declare namespace Stores {
 	interface ISections {
 		sections: Array<Models.ISection>;
 		contentSections: Array<Models.ISection>;
+		getSectionsAsHTML: string;
+		getSectionsAsText: string;
 		addSection(type: number, title: string, text?: string, insertionMode?: number, files?: IFile[]): ISection;
 		moveSection(oldIndex: number, newIndex: number): void;
 		removeSection(section: Models.ISection): number;
@@ -17,7 +19,6 @@ declare namespace Stores {
 		clearSections():void;
 		loadSections(): void;
 		findSectionByID(id: number): ISection;
-		getSectionsAsHTML(): string;
 	}
 
 	interface IAppState {

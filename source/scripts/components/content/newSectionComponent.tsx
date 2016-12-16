@@ -122,11 +122,11 @@ export default class NewSectionComponent extends React.Component<Props.Content.I
 	};
 
 	downloadContent = () => {
-		downloadFile('content.html', this.props.sections.getSectionsAsHTML());
+		downloadFile('content.html', this.props.sections.getSectionsAsHTML);
 	};
 
 	deleteContent = () => {
-		downloadFile('backup.html', this.props.sections.getSectionsAsHTML());
+		downloadFile('backup.html', this.props.sections.getSectionsAsHTML);
 		this.props.sections.clearSections();
 	};
 

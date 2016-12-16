@@ -3,6 +3,7 @@ import {observer, inject} from "mobx-react";
 import ISectionTinymce = Props.Content.ISectionTinymce;
 import {SectionTypes, headlineTagNames, headlineRegexp} from "../../models/section";
 import {camelize} from "../../library/stringHelper"
+import ISection = Models.ISection;
 require("tinymce/tinymce");
 const TinyMCE = require("react-tinymce");
 
@@ -25,7 +26,8 @@ export default class SectionTinymce extends React.Component<ISectionTinymce, {}>
 	}
 
 	public render(): JSX.Element {
-		const {sections, bibliographyStore, onChange, section} = this.props;
+		const sections = this.props.sections;
+		const {bibliographyStore, onChange, section} = this.props;
 
 		return (
 			<TinyMCE
@@ -198,9 +200,20 @@ export default class SectionTinymce extends React.Component<ISectionTinymce, {}>
 									for (let i = 0; i < sections.sections.length; i++) {
 										let s = sections.sections[i];
 										chapters.push({id: 'section-'+s.id, type: SectionTypes.CHAPTER, short: 'Chapter '+(i+1)+' ('+s.title+')', name: 'Chapter '+(i+1)+': '+s.title});
+
 										for (let j = 0; j < s.subsections.length; j++) {
 											let subs = s.subsections[j];
-											chapters.push({id: 'subsection-'+subs.id, type: SectionTypes.CHAPTER, short: 'Chapter '+(i+1)+'.'+subs.num+' ('+subs.title+')', name: 'Chapter '+(i+1)+'.'+subs.num+': '+subs.title});
+											chapters.push({id: subs.id, type: SectionTypes.CHAPTER, short: 'Chapter '+(i+1)+'.'+subs.num+' ('+subs.title+')', name: 'Chapter '+(i+1)+'.'+subs.num+': '+subs.title});
+										}
+
+										for (let j = 0; j < s.figures.length; j++) {
+											let subs = s.figures[j];
+											chapters.push({id: subs.id, type: SectionTypes.FIGURETOC, short: 'Figure '+(i+1)+'.'+(j+1)+' ('+subs.title+')', name: 'Figure '+(i+1)+'.'+(j+1)+': '+subs.title});
+										}
+
+										for (let j = 0; j < s.tables.length; j++) {
+											let subs = s.tables[j];
+											chapters.push({id: subs.id, type: SectionTypes.FIGURETOC, short: 'Table '+(i+1)+'.'+(j+1)+' ('+subs.title+')', name: 'Table '+(i+1)+'.'+(j+1)+': '+subs.title});
 										}
 									}
 
@@ -220,12 +233,31 @@ export default class SectionTinymce extends React.Component<ISectionTinymce, {}>
           }}
 				onChange={(e) => {
 					let editor = e.target;
-					if(headlineTagNames.indexOf(editor.selection.getNode().tagName) >= 0 && !editor.selection.getNode().querySelector('a')) {
-						let a = document.createElement("a");
-						a.title = a.id = 'subsection-'+camelize(editor.selection.getNode().textContent);
-						a.className = 'mce-item-anchor';
-						editor.selection.getNode().appendChild(a);
+					let node = editor.selection.getNode();
+
+					if(node.textContent.length > 2) {
+						if(headlineTagNames.indexOf(node.tagName) >= 0 && !node.querySelector('a')) {
+							let a = document.createElement("a");
+							a.title = a.id = 'subsection-'+camelize(node.textContent);
+							a.className = 'mce-item-anchor';
+							node.appendChild(a);
+						}
+
+						if(node.tagName.toLowerCase() == "figcaption" && !node.querySelector('a')) {
+							let a = document.createElement("a");
+							a.title = a.id = 'figure-'+camelize(node.textContent);
+							a.className = 'mce-item-anchor';
+							node.appendChild(a);
+						}
+
+						if(node.tagName.toLowerCase() == "caption" && !node.querySelector('a')) {
+							let a = document.createElement("a");
+							a.title = a.id = 'table-'+camelize(node.textContent);
+							a.className = 'mce-item-anchor';
+							node.appendChild(a);
+						}
 					}
+
 					let content = editor.getContent({format : editor.settings.entity_encoding ? editor.settings.entity_encoding : 'named'});
 					onChange(content);
 				}}

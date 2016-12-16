@@ -1,5 +1,6 @@
 import {observable, computed, autorunAsync, action, autorun, asMap, map} from "mobx";
 import {SectionTypes, default as Section, StoragePrefix} from "../models/section";
+import ISection = Models.ISection;
 
 export const enum InsertionType {
 	PREPEND, APPEND
@@ -26,6 +27,15 @@ export class Sections implements Stores.ISections {
 
 	@computed get lastID() {
 		return this.sections.length ? Math.max(...this.ids) : -1;
+	}
+
+	@computed get getSectionsAsHTML() {
+		return this.sections.map((s: Section) => s.toHTML).join('\n');
+	}
+
+	/** @return string */
+	@computed get getSectionsAsText() {
+		return this.sections.map((s: Section) => s.toText).join('\n');
 	}
 
 	@action addSection(type: number, title: string, text: string = '', insertionMode = InsertionType.APPEND, files = []) {
@@ -82,10 +92,6 @@ export class Sections implements Stores.ISections {
 
 	findSectionByID(id) {
 		return this.sections.find(s => s.id == id);
-	}
-
-	getSectionsAsHTML() {
-		return this.sections.map((s: Section) => s.toHTML).join('\n');
 	}
 }
 

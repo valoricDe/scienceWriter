@@ -1,7 +1,7 @@
 const path = require('path');
 
 const project = {
-	title: 'typescript-react-mobx-boilerplate', // your awesome app title
+	title: 'scienceWriter', // your awesome app title
 	root: 'root', // root where your react app will be rendered
 };
 

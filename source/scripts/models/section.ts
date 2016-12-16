@@ -73,6 +73,41 @@ export default class Section implements Models.ISection {
 		return r;
 	}
 
+	@computed get figures() {
+		let doc = parser.parseFromString(this.text, "text/html");
+		let figures = doc.querySelectorAll('figure');
+
+		let a, id, caption, r = [];
+
+		for(let f of figures) {
+			a = f.querySelector('a[id]');
+			id = a ? a.id : f.id;
+			caption = f.querySelector('caption');
+			r.push({id: a ? a.id : f.id, title: caption ? caption.textContent : id});
+		}
+		return r;
+	}
+
+	@computed get tables() {
+		let doc = parser.parseFromString(this.text, "text/html");
+		let tables = doc.querySelectorAll('table');
+
+		let a, id, caption, r = [];
+
+		for(let f of tables) {
+			a = f.querySelector('a[id]');
+			id = a ? a.id : f.id;
+			caption = f.querySelector('caption');
+			r.push({id: a ? a.id : f.id, title: caption ? caption.textContent : id});
+		}
+		return r;
+	}
+
+	@computed get toText() {
+		let doc = parser.parseFromString(this.text, "text/html");
+		return "###" + this.title + "###\n" + doc.body.textContent;
+	}
+
 	static fromHTML(s: Element) {
 		let headline = s.querySelector('h1') || s.querySelector('h2') || s.querySelector('h3');
 		let title;

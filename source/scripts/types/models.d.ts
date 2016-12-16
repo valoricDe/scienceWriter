@@ -8,6 +8,8 @@ declare namespace Models {
 		text: string;
 		files: IFile[];
 		subsections: ISubSection[];
+		figures: any[];
+		tables: any[]
 		toJSON: Object;
 		toHTML: string;
 		remove(triggeredFromStore): void;
