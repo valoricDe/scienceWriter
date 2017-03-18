@@ -28,7 +28,8 @@ export default class Sidebar extends Component<Props.Content.ISidebar, void> {
 			</IconMenu>
 		);
 
-		const wordCount = this.props.sections.getSectionsAsText.match(/\S+/g).length;
+		const match = this.props.sections.getSectionsAsText.match(/\S+/g);
+		const wordCount = match ? match.length : 0;
 
 		return (
 			<div>
