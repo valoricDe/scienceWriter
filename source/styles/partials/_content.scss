@@ -15,6 +15,19 @@
 		border-radius: 3px !important;
 	}
 
+	&__sectionWrapper * {
+		font-family: "Open Sans";
+	}
+
+	&__sectionWrapper {
+		h1, h2, h3, h4, h5, h6 {
+			font-family: "Droid Sans Mono";
+			* {
+				font-family: "Droid Sans Mono";
+			}
+		}
+	}
+
 	&__newSectionDialog {
 		min-width: 180px;
 		float: none;
@@ -37,6 +50,20 @@
 		span {
 			cursor: row-resize !important;
 		}
+	}
+
+	&__toc_sec > div > div {
+		padding: 16px 10px 8px 16px !important;
+		font-size: 1.1em;
+	}
+
+	&__toc_sub1 > div > div {
+		padding: 12px 10px 6px 26px !important;
+		font-size: 0.9em;
+	}
+	&__toc_sub2 > div > div {
+		padding: 8px 10px 4px 32px !important;
+		font-size: 0.8em;
 	}
 
 	&__customToolbar, &__customToolbarTitle, &__customToolbarTitleRight {

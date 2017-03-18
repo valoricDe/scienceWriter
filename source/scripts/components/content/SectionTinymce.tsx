@@ -6,6 +6,7 @@ import {camelize} from "../../library/stringHelper"
 import ISection = Models.ISection;
 require("tinymce/tinymce");
 const TinyMCE = require("react-tinymce");
+import "../../library/jqueryLoader"; // needed by localautosave
 
 @observer
 export default class SectionTinymce extends React.Component<ISectionTinymce, {}> {
@@ -41,17 +42,26 @@ export default class SectionTinymce extends React.Component<ISectionTinymce, {}>
 							// all: advlist,autolink,colorpicker,contextmenu,image,imagetools,layer,tabfocus,textpattern,wordcount,codesample,save,textcolor,anchor,charmap,code,fullpage,fullscreen,hr,insertdatetime,link,media,nonbreaking,pagebreak,paste,preview,print,searchreplace,table,template,visualblocks,visualchars
 
 							// importcss could be usefull
-							'advlist autolink colorpicker contextmenu image imagetools layer tabfocus textpattern wordcount', // autoresize without menu and toolbar entry
+							'advlist lists autolink colorpicker contextmenu image imagetools layer tabfocus textpattern wordcount', // autoresize without menu and toolbar entry
 							'textcolor', // codesample save with toolbar button
 							'anchor charmap code fullpage fullscreen hr insertdatetime link media nonbreaking pagebreak paste preview print searchreplace table template visualblocks visualchars', // with menu and toolbar entry
-							'mention', // external plugins asciimath4 localautosave
+							'mention localautosave', // external plugins asciimath4 localautosave
             ],
 						external_plugins: {
 							//'asciimath4': '/vendor/asciimath-tinymce4/plugin.js',
 							'mention': 'vendor/tinyMCE-mention/mention/plugin.js',
-							//'localautosave' : '/vendor/TinyMCE-LocalAutoSave/localautosave/plugin.min.js'
+							'localautosave' : 'vendor/TinyMCE-LocalAutoSave/localautosave/plugin.min.js'
 						},
-						toolbar: ' styleselect formatselect | bold italic underline | alignleft aligncenter alignjustify | bullist numlist | outdent indent | blockquote | removeformat | table hr link unlink pagebreak codesample asciimath4 | code visualblocks visualchars | undo redo fullscreen localautosave | save',
+						menu : { // this is the complete default configuration
+						        file   : {title : 'File'  , items : 'newdocument'},
+						        edit   : {title : 'Edit'  , items : 'undo redo | cut copy paste pastetext | selectall'},
+						        insert : {title : 'Insert', items : 'link media | template hr | formats'},
+						        view   : {title : 'View'  , items : 'visualaid'},
+						        format : {title : 'Format', items : 'bold italic underline strikethrough superscript subscript | formats | removeformat'},
+						        table  : {title : 'Table' , items : 'inserttable tableprops deletetable | cell row column'},
+						        tools  : {title : 'Tools' , items : 'spellchecker code | formats'},
+						    },
+						toolbar: 'formatselect | bold italic underline | alignleft aligncenter alignjustify | bullist numlist | outdent indent | blockquote | removeformat | table hr link unlink pagebreak codesample asciimath4 | code visualblocks visualchars | undo redo fullscreen localautosave | save',
 
 						// tinymce settings
 						//entity_encoding : "raw",

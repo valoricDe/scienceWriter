@@ -22,7 +22,7 @@ module.exports = (project, paths) => {
 			loaders: [
 				{
 					test: /\.(tsx|ts)$/,
-					exclude: /node_modules/,
+					exclude: /node_modules|test/,
 					loaders: ['babel', 'ts'],
 				},
 				{
@@ -53,7 +53,7 @@ module.exports = (project, paths) => {
 			}),
 			new CopyWebpackPlugin([
 				{ from: 'vendor/asciimath-tinymce4/plugin.js', to: 'js/vendor/asciimath-tinymce4/plugin.js' },
-				{ from: 'vendor/TinyMCE-LocalAutoSave/localautosave/plugin.js', to: 'js/vendor/TinyMCE-LocalAutoSave/localautosave/plugin.js' },
+				{ from: 'vendor/TinyMCE-LocalAutoSave/localautosave', to: 'js/vendor/TinyMCE-LocalAutoSave/localautosave' },
 				{ from: 'vendor/tinyMCE-mention/mention/plugin.js', to: 'js/vendor/tinyMCE-mention/mention/plugin.js' },
 				{ from: './node_modules/tinymce/plugins', to: 'js/plugins' },
 				{ from: './node_modules/tinymce/themes', to: 'js/themes' },

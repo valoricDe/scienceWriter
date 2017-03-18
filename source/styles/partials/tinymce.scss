@@ -64,3 +64,63 @@ figure.image figcaption {
 	margin: 6px 8px 6px 8px;
 	text-align: center;
 }
+
+ol {
+	list-style-type: none;
+	counter-reset: item;
+	margin: 0;
+	padding: 0;
+}
+
+ol > li {
+	//display: table;
+	counter-increment: item;
+	margin-bottom: 0.6em;
+}
+
+ol > li:before {
+	content: counters(item, ".") ". ";
+	//display: table-cell;
+	//padding-right: 0.6em;
+	position: absolute;
+}
+
+li ol > li {
+	margin: 0;
+}
+
+li ol > li:before {
+	//content: counters(item, ".") " ";
+}
+
+div > ol {
+	padding-left: 1.1em;
+}
+
+div > ol li:before {
+	margin-left: -1.1em;
+}
+
+div > ol ol {
+	padding-left: 2.05em;
+}
+
+div > ol ol li:before {
+	margin-left: -2.05em;
+}
+
+div > ol ol ol {
+	padding-left: 3em;
+}
+
+div > ol ol ol li:before {
+	margin-left: -3em;
+}
+
+div > ol ol ol ol {
+	padding-left: 4em;
+}
+
+div > ol ol ol ol li:before {
+	margin-left: -4em;
+}

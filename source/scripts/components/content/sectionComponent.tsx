@@ -48,10 +48,10 @@ export default class SectionComponent extends React.Component<ISectionComponent,
 								return <List>
 									{
 										this.props.sections.contentSections.map((s:ISection, i:number) => {
-											let chapters = [<ListItem key={s.id} primaryText={(i+1)+'. '+s.title} onTouchTap={() => location.href= "#section-"+ s.id}/>];
+											let chapters = [<ListItem className={'content__toc_sec'} key={s.id} primaryText={(i+1)+'. '+s.title} onTouchTap={() => location.href= "#section-"+ s.id}/>];
 											for (let j = 0; j < s.subsections.length; j++) {
 												let subs = s.subsections[j];
-												chapters.push(<ListItem key={subs.id} primaryText={(i+1)+'.'+subs.num+'. '+subs.title} onTouchTap={() => location.href= "#subsection-"+ subs.id}/>);
+												chapters.push(<ListItem className={'content__toc_sub'+String((subs.num.length+1)/2)} key={subs.id} primaryText={(i+1)+'.'+subs.num+'. '+subs.title} onTouchTap={() => location.href= "#"+ subs.id}/>);
 											}
 											return chapters;
 										})

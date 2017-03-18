@@ -9,18 +9,13 @@
 		"allowSyntheticDefaultImports": true,
 
 		"noFallthroughCasesInSwitch": true,
-		"moduleResolution": "node",
-		"types": [
-			"node",
-			"jest",
-			"react",
-			"react-dom"
-		]
+		"moduleResolution": "node"
 	},
 	"exclude": [
 		"node_modules",
 		"build",
 		"misc",
-        "vendor"
+        "vendor",
+        "**/*test*"
 	]
 }

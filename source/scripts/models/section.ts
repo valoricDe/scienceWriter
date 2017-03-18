@@ -4,7 +4,7 @@
 import {observable, computed, autorunAsync, action, autorun} from "mobx";
 
 export const enum SectionTypes {
-	COVER, TITLEPAGE, ABSTRACT, TOC, CHAPTER, FIGURETOC, BIBLIOGRAPHY
+	COVER, TITLEPAGE, ABSTRACT, TOC, CHAPTER, FIGURETOC, APPENDIX, BIBLIOGRAPHY
 }
 
 export const SectionTypeMap: Array<string> = [];
@@ -14,6 +14,7 @@ SectionTypeMap[SectionTypes.ABSTRACT] = 'Abstract';
 SectionTypeMap[SectionTypes.TOC] = 'Table of contents';
 SectionTypeMap[SectionTypes.CHAPTER] = 'Chapter';
 SectionTypeMap[SectionTypes.FIGURETOC] = 'Table of figures';
+SectionTypeMap[SectionTypes.APPENDIX] = 'Appendix';
 SectionTypeMap[SectionTypes.BIBLIOGRAPHY] = 'Bibliography';
 
 export const enum FileTypes {
@@ -61,14 +62,15 @@ export default class Section implements Models.ISection {
 		let doc = parser.parseFromString(this.text, "text/html");
 		let headlines = doc.querySelectorAll(headlineTagNames.join(', '));
 
-		let hd, a, r = [], numberings = [1, 1, 1, 1, 1, 1];
+		let hd, a, r = [], numberings = [0, 0, 0, 0, 0, 0];
 
 		for(let h of headlines) {
-			hd = Math.max(parseInt(h.tagName[1])-1, 1);
-			numberings.splice(hd, 6-hd, ...Array(6-hd).fill(0));
-			a = h.querySelector('a[id]');
-			r.push({id: a ? a.id : h.id, title: h.textContent, num: numberings.slice(0, hd).join('.')});
+			if(Number(h.tagName[1]) > 3) continue;
+			hd = Math.max(parseInt(h.tagName[1])-2, 0);
 			numberings[hd]++;
+			numberings.splice(hd+1, 6-hd-1, ...Array(6-hd-1).fill(0));
+			a = h.querySelector('a[id]');
+			r.push({id: a ? a.id : h.id, title: h.textContent, num: numberings.slice(0, hd+1).join('.')});
 		}
 		return r;
 	}
