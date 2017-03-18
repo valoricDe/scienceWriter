@@ -1,0 +1,161 @@
+<header id="0" data-type="0"><h1>A knowledge base tailered for politicians and citizens</h1>
+
+
+
+
+<p style="text-align: center;"><img src="https://userpage.fu-berlin.de/velten/Masterarbeit/output/img/Logo_RGB_Ausdruck.jpg" caption="false" width="827" height="221"></p>
+<p></p>
+<p style="text-align: center;">Department of Mathematics and Computer Science<br>Institute of Computer Science<br>Human-Centered Computing (HCC)</p>
+<p></p>
+<h2 style="text-align: center;"><span>A knowledge base tailored for politicians and citizens</span></h2>
+<p></p>
+<h2 id="h5o-2" style="text-align: center;">using an online question and answer (Q&amp;A) platform</h2>
+<p></p>
+<p style="text-align: center;">submitted by<br>Velten Heyn<br>v.h@fu-berlin.de</p>
+<p></p>
+<p style="text-align: center;">in partial fulfillment of the requirements<br>for the degree of<br>Master of Science</p>
+<p></p>
+<p style="text-align: center;">Berlin, the 9th of March 2016</p>
+<p></p>
+<p style="text-align: center;">Superviser and first examiner: Prof. Dr. Claudia Müller-Birn<br>Second examiner?</p>
+<p></p>
+<p>Declaration of authorship<br><br>I hereby certify, that I have written this thesis entirely on my own and that I have not&nbsp;used any other materials than the ones referred to. This thesis or parts of it have not&nbsp;been submitted for a degree at this or any other university.</p>
+<p></p>
+<p>Berlin, the 9th of March 2016<br>Velten Heyn</p>
+<p></p>
+<p>&nbsp;</p>
+<p></p>
+
+</header>
+<div id="1" data-type="3"><h1>Table of contents</h1></div>
+<section id="2" data-type="4"><h1>Motivation</h1>
+
+
+
+
+<p>Prof. Dr. Ingrid van Biezen showed in her recently published article <a href="#bibliography-BIE05" onclick="console.log(this.href.replace(/.*#/, '')); var e = document.getElementsByName(this.href.replace(/.*#/, '')); console.log(e); if(e.length) e[0].scrollIntoView(true); window.tinymce.activeEditor.trigger('blur')">[BIE05]</a>&nbsp;that european parties had to face an extreme decline in membership in the last years. The biggest parties of germany, SPD and CDU/CSU, have lost nearly half of there members since 1990. Many political parties, according to van Biezen, lost there ability to include the public society. Only a quarter of all german citizens still trust political parties. Pursuant to the articles of Prof. Dr.&nbsp;<span>Eric W. Welch</span>&nbsp;<span size="1">(<a href="#bibliography-WELCH03" onclick="console.log(this.href.replace(/.*#/, '')); var e = document.getElementsByName(this.href.replace(/.*#/, '')); console.log(e); if(e.length) e[0].scrollIntoView(true); window.tinymce.activeEditor.trigger('blur')">[WELCH03]</a>,&nbsp;<a href="#bibliography-WELCH05" onclick="console.log(this.href.replace(/.*#/, '')); var e = document.getElementsByName(this.href.replace(/.*#/, '')); console.log(e); if(e.length) e[0].scrollIntoView(true); window.tinymce.activeEditor.trigger('blur')">[WELCH05]</a>)</span>&nbsp;there is a direkt relationship between satisfaction, trust and transparency. The connected net creates new possibilities to raise transparency and interaction between politicians and civil society with participatory online platforms.</p>
+<p id="subsectionThe goal of this thesis is to increase the transparency&nbsp;of political decision-making and thus trust in political parties. In order to reach this goal I imagine a participatory online platform where politicians, officials and citizens can interact directly within a flat hierarchy. It is therefore a task to develop a concept for a platform which enables me to build a well formed online community for interaction within the context of politics. Therefore it has to be examined which general aspects of community building have to be considered. Furthermore existing mechanisms and pitfalls have to be identified by analyzing existing platforms.">The goal of this thesis is to increase the transparency&nbsp;of political decision-making and thus trust in political parties. In order to reach this goal I imagine a participatory online platform where politicians, officials and citizens can interact directly within a flat hierarchy. It is therefore a task to develop a concept for a platform which enables me to build a well formed online community for interaction within the context of politics. Therefore it has to be examined which general aspects of community building have to be considered. Furthermore existing mechanisms and pitfalls have to be identified by analyzing existing platforms.</p>
+<p id="subsectionAfter concretizing the concept, a prototype will be developed, and mechanics analyzed with a survey.">After concretizing the concept, a prototype will be developed, and mechanics analyzed with a survey.</p>
+
+</section>
+<section id="3" data-type="4"><h1>Building a successfull online community</h1>
+
+
+
+
+<p id="subsectionAccording to Prof. Dr. Robert Krauts (et al.) findings in &quot;Building Successful Online Communities: Evidence-Based Social Design&quot;&nbsp;[10.2307/J.CTT5HHGVW]&nbsp;there are four key aspects for building successful online communities: attracting newcomers, encouraging commitment, encouraging contributions and regulating behavior. All these aspects, described in detail below, and the resulting design choices for the proposed software are following in this chapter.">According to Prof. Dr. Robert Krauts (et al.) findings in "<span>Building Successful Online Communities: Evidence-Based Social Design</span>"&nbsp;<a href="#bibliography-10.2307/J.CTT5HHGVW">[10.2307/J.CTT5HHGVW]</a>&nbsp;there are four key aspects for building successful online communities: attracting newcomers, encouraging commitment, encouraging contributions and regulating behavior. All these aspects, described in detail below, and the resulting design choices for the proposed software are following in this chapter.</p>
+<p id="subsectionAttracting newcomersNewcomers play an important role to the community. They restock leaving members or contribute in growth. On the other hand they have to accustom to the norms of the group and&nbsp;while doing so may be antagonizing long-established members. The book focusses on the experiences of newcomers and&nbsp;the evolvementthe evolvementthe evolvement&nbsp;current members during the evolvement from &quot;reader-to-leader&quot; [PREECE09]. For newcomers it is important to keep the entry barrier low but still introduce them via initiation rituals and welcoming practices."><span style="text-decoration: underline;">Attracting newcomers</span><br>Newcomers play an important role to the community. They restock leaving members or contribute in growth. On the other hand they have to accustom to the norms of the group and&nbsp;while doing so may be antagonizing long-established members. The book focusses on the experiences of newcomers and&nbsp;<span mce-data-marked="1" id="subsectionthat of">that of</span>&nbsp;current members during the evolvement from "reader-to-leader" <a href="#bibliography-PREECE09">[PREECE09]</a>. For newcomers it is important to keep the entry barrier low but still introduce them via initiation rituals and welcoming practices.</p>
+<p><span style="text-decoration: underline;">Encouraging commitment</span><br>Based on the work of Kurt Lewin regarding "field theory,"</p>
+<p class="p1" id="subsection-that describes commitment as a building block&nbsp;@">that describes commitment as a building block&nbsp;@</p>
+<p>where commitment is a building block for a community which relates to the properties of the environment (field) Kraut and his coauthors identify three kinds of commitment to communities:</p>
+<ul>
+<li><em>affective commitment</em>, "based on feelings of closeness and attachment to a group or members of the group"</li>
+<li><em>normative commitment</em>, "based on feelings of rightness or obligations to the group</li>
+<li><em>need-based or continuance commitment</em>, "based on an incentive structure in the group and alternatives available to members from outside that increase the net costs of leaving the group."</li>
+</ul>
+<p>Furthermore they differentiate between identity-based and bonds-based commitment which can be traced back to Festinger, Schachter, and Back’s (1950) theory of group cohesiveness, where they define the two types as commitment through attractiveness of the group or through the attractiveness of individual group members. In the former members link themselves to certain characteristics of the community (e.x. main topic of the community) or to other members and the interaction with them.</p>
+<p><span style="text-decoration: underline;">Encouraging contributions</span><br>Contribution is the heart of each community. Kraut and Resnick therefore explored methods for encouraging and maximizing contribution amongst others linked to theories of motivation in social psychology. As successful examples for contribution Kraut and Resnick list the open source software community Apache, the&nbsp;Internet encyclopedia Wikipedia. But it is also outlined that volunteers often leave tasks undone they find unappealing. That's why companies often have paid employees which handle neccessary tasks. They mention classic Expectancy-Value models (V. Vroom, Porter, &amp; Lawler, 2005) where motivation is a multiplicative function of expectancy and value with a two-stage process where individual effort has some impact on performance (e.x. completed features of a software product), and performance has some impact on outcomes (e.x. acknowledgement of community). The satisfaction resulting from outcome can lay in intrinsic and extrinsic motivation (Burke &amp; Kraut, 2008). The further discussion of the social psychology of "collective effort" is rooted in a 1993 review paper by Karau and Williams's work on social loafing and their attempts to understand and promote individuals to make substantive contributions when in groups rather than depend on the efforts of others. The overall emphasis of the chapter is on motivating individuals to make the maximum meaningful contribution they can, motivated through clever software design, task structures, and reward architectures</p>
+<p><span style="text-decoration: underline;">Regulating behavior</span><br>Online communities can have differing norms in order to "help the community achieve its mission". Furthermore norms should reach rough consensus to ensure that members enforce the adherence of these. The authors of this chapter (Kiesler, Kraut, Resnick, and Kittur) differ between community insiders and outsiders like "trolls" and "manipulators" who "have no vested interest in the community functioning well." The main design claims in this chapter focus on:</p>
+<ul>
+<li><strong>limiting effects of bad behavior</strong> through moderation systems, making "inappropriate posts" less prominent, keeping consistent moderation policies, including community members in moderation, offering reversion tools, and introducing filters.</li>
+<li><strong>limiting bad behavior itself</strong>, through activity quotas (to prevent spam), suspensions and bans, consistent criteria for suspensions with due process, payment requirements that raise the cost of activity, and CAPTCHAs</li>
+<li><strong>encouraging voluntary compliance</strong>, by ensuring that people learn the norms, showing examples of appropriate or inappropriate behavior (but not too much, displaying statistics on normative behavior, and reminding people about norms at the point of action. They also discuss the possibility of these interventions backfiring.</li>
+</ul>
+<p>The authors further argue that norms are stronger if it is possible for the community to adhere to norms and rules. Sometimes members have to act against the norms so it is helpful to redirect misbehavior to an outside space where "not a bunch of people are ‘watching’ the flame". They also present a system called stopit developed by MIT where reported users accused of harassment get a message from the system pretending that the harassers account got compromised and that the user should change its password in order to stop harassment. Pursuant to Gregory Jackson, the Director of Academic Computing at MIT this stopped harassment effectively without accusing users directly, helping the to keep their face.</p>
+<p>The last section of this chapter concludes about sanctions and rewards. Sanctions in an pseudonym based community are less affective as it is possible to members switch pseudonyms. The authors depict mechanisms to make sanctions more consequential, such as reputation systems, "attention bonds" that "make undesirable actions more costly," costs associated with pseudonym switching, "bonds that may be forfeited if the newcomers misbehave," membership referral systems that affect the reputation of a sponsoring member.&nbsp;</p>
+
+</section>
+<section id="4" data-type="4"><h1>Concepts for a political platform</h1>
+
+
+
+
+<p>[TODO] Explain why you decided to opt for an Question-And-Answer Platform (Q&amp;A): Draft:</p>
+<p>I first &nbsp;thought that it would be possible &nbsp;to use a localized platform like politics.stackexchange.com (see subchapter Multi-Purpose-Platforms) but then realized that politics is not only about information and solutions but also compromise and agreement. StackExchange sites focus on one interest: giving the best possible answer of course it can be opinion based but there is only one interest. In politics you have users with differing interests which makes it much harder to design a simple process to meet the interests of a maximized number of users.<br><br>In this chapter I'm going to state all the design decision to build a successful Q&amp;A platform. The chapter is structured by the chapters of the book&nbsp;<a href="#bibliography-10.2307/J.CTT5HHGVW" onclick="console.log(this.href.replace(/.*#/, '')); var e = document.getElementsByName(this.href.replace(/.*#/, '')); console.log(e); if(e.length) e[0].scrollIntoView(true); window.tinymce.activeEditor.trigger('blur')">[10.2307/J.CTT5HHGVW]</a>. Where design decision are influenced by the book curly brackets will mark the numbers linking the design claims of the book.</p>
+<h2>Dealing with newcomers<a id="subsection-dealingWithNewcomers" title="subsection-dealingWithNewcomers"></a></h2>
+<p><span style="text-decoration: underline;">Recruiting newcomers<br></span>As interpersonal recruiting is more powerful than mass advertising {2} it will be possible for members to invite others (via link on platform and via email question ("... Do you know any friends which could enjoy being part of our community? -&gt; Forward")).<br>It shall also be possible to forward and share a current question, answer, selected comment via link or social networks {3,4}.<br>Send once in a while personal emails to most influencing users of the community to encourage them to recruit others in their social networks {5}.<br>Ask users for testimonials which will be reviewed and potentially prominently shown on the homepage (with notification to user who gave testimonial that his comment was published) {7,8}.</p>
+<div class="remark" style="float: right; width: 300px;">Which information should be shown on homepage? Most voted questions? Or chosen question in case the most voted question is against norms?</div>
+<p>Show which recent or most popular questions or answers have been given (show actitivity on platform, show how many community members the platforms has) to facilitate the rational cost-benefit analysis of newcomers {9}.</p>
+<p><span style="text-decoration: underline;">Selecting the right newcomers</span><br>Self-selection plays an important part on enforcing the right newcomers to join the community. It won't help against trolls but against people who have no vetted interest in participating in the community. Not logged in users will be illustrated on the homepage of the platform how the community should function, which features to expect, the goals and norms to keep in mind {11}. To keep the entry barrier (registering) low, the potential member can directly choose on the homepage groups of special interest. After choosing (1-x???) question(s) will be shown to him where he is asked if the question, answers, comments are high quality. He will be asked if he can give substantial feedback or even give an own answer {13}. After this he will be asked if he would like to join the community to make his changes permanent (otherwise they will be saved somewhere for later use (for some time)). If he registered the changes will be looked over by an moderator / or chosen user with special rights (see&nbsp;Design Claim 4 in chapter "Regulating Behavior in online communities") for compliance to the community norms {12}. As newcomers are possibly not familiar with established rules and norms the first three??? questions after sign up can be assigned to a member of the mentoring program {18,23,24} (is every member automatically part of the mentoring program???) to revise the question if necessary and circumvent bad feelings if the question does not fit into the community or is elsewhere disadvantageous {13}. [TODO] Include study to online hate. Prevent bonds-based commitment to circumvent group dynamics which can lead to hate</p>
+<p><span style="text-decoration: underline;">Teaching the newcomers the ropes / Protecting the group from newcomers&nbsp;<br></span>To give newcomers direct feedback to their socialization a chat room for newcomers (every month? for up to x? newcomers) is automatically created where a. links to the FAQ and norms are given and b. (x?) established members are asked to join in order to help the newcomers to teach the ropes {22}. (Give the ability to rate the mentor? or chat entries in general?).</p>
+<p><span style="text-decoration: underline;">Encouraging commitment<br></span>[TODO]</p>
+<p><span style="text-decoration: underline;">Encouraging contributions<br></span>[TODO]</p>
+<p><span style="text-decoration: underline;">Regulating behaviour<br></span>[TODO]</p>
+
+</section>
+<section id="5" data-type="4"><h1>Analysis of platforms for political participation</h1><!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<p>In this chapter follows an analysis of general platforms for information exchange&nbsp; as well as specialized software projects for political participation and opinion forming.</p>
+<h2 id="h5o-3">Multi-Purpose-Platforms<a id="subsection-multi-Purpose-Platforms" title="subsection-multi-Purpose-Platforms"></a></h2>
+<p><span style="text-decoration: underline;">Mailing lists, social media platforms (like Facebook, Twitter, etc)</span><br />Mailing lists and social media platforms make it possible to consume information and to have discussions. But mailing lists as well as&nbsp;social media platforms show contents in a&nbsp; consecutive manner and make it not possible to differ between good and bad arguments (apart from giving emoticons).</p>
+<p><span style="text-decoration: underline;">politics.stackexchange.com<br /></span>On stackechange.com it is possible to raise questions and to get answers from the community. Every member of the community can decide how helpful each answer seems to him or her and vote respectively. With this voting mechanism the community builds a collective opinion of helpful and non-helpful content. Further it is possible to comment each question or answer, for example to raise new questions in the context of the given question / answer or to propose improvements. If a discussion is needed it is possible to use a chat room but stackexchange.com discourages the use of it as stated by one of the founders Jett Atwood on <span size="1">[ATW13]</span>:</p>
+<blockquote>At Stack Exchange, one of the tricky things we learned about Q&amp;A is that if your goal is to have an excellent signal to noise ratio, <strong>you <em>must</em> suppress discussion.</strong> Stack Exchange only supports the absolute minimum amount of discussion necessary to produce great questions and great answers. That's why answers get constantly re-ordered by votes, that's why comments have limited formatting and length and only a few display, and so forth. Almost every design decision we made was informed by our desire to push discussion down, to inhibit it in every way we could. Spare us the long-winded diatribe, just <em>answer the damn question already</em>.</blockquote>
+<p>Unfortunately stackexchange.com offers it's platform mainly in english. According to an Eurobarometer survey published by the Bundeszentrale f&uuml;r politische Bildung [BPB12]&nbsp;only 38% of european citizens are able to have an basic conversation in english. As expressing an question with political terms is quite harder than having an conversation, it is save to say that less than a third of the german population will be able to use stackexchange.com in english without help.</p>
+<h2 id="h5o-4">Platforms specialized for political work<a id="subsection-platformsSpecializedForPoliticalWork" title="subsection-platformsSpecializedForPoliticalWork"></a></h2>
+<p>Michael Alan compared at <span size="1">[ALN14]</span>&nbsp;which means (among others software products) exist to reach an civil consensus.<br />The master&nbsp;thesis of Sebastian Jabbusch [JAB11] who evaluated the use of <a href="#subsection-liquidFeedback">LiquidFeedback</a>&nbsp;in the Piratenpartei Deutschland also cites useful software comparisons. For example the one of Thomas von der Elbe who lists the (to date) most important software projects for political partake [TVE15]. Also the Piratenpartei formulated significant aspects for factional implementation under [PPD11].</p>
+<h3 id="subsection-iParlament">iParlament<a id="subsection-iParlament" title="subsection-iParlament"></a></h3>
+<p id="subsection-Build and run by&nbsp;Himbeerrot GmbH and supported by the initiators&nbsp;Holger H&auml;gele, Tobias Mohr and Werner Winkler. iParlament uses 'Folders' and 'Registers' where folders are subject specific containers and contain an introductory speech. Each register contains a set of proposals or requests. The platform has been abandoned from 2012.&nbsp;Further links: FAQ of iParlament">Build and run by&nbsp;Himbeerrot GmbH and supported by the initiators&nbsp;Holger H&auml;gele, Tobias Mohr and Werner Winkler. iParlament uses 'Folders' and 'Registers' where folders are subject specific containers and contain an introductory speech. Each register contains a set of proposals or requests. The platform has been abandoned from 2012.&nbsp;<br /><sub class="footnote">Further links: <a href="http://www.iparlament.de/faq.php" target="_blank">FAQ of iParlament</a></sub></p>
+<p><span style="text-decoration: underline;">Votorola<br /></span>Votorola&nbsp;is a discontinued research project from Michael Allan. [TODO] rephrase: Like the concepts of LiquidFeedback Allan focuses his concepts&nbsp;around delegations or the structure of voting. He is currently (March 2016) working on a software project named Waymaker which expand the concepts of Votorola. (Source: Email correspondence)<br /><sub class="footnote">Further links: <a href="http://reluk.ca/project/votorola/home.html" target="_blank">Votorola</a>, <a href="http://reluk.ca/project/votorola/d/theory.xht" target="_blank">concepts</a></sub></p>
+<p><span style="text-decoration: underline;">Adhocracy<br /></span>Has been developed by Friedrich Lindenberg in the scope of his bachelor thesis to be able to evaluate a group-discussion platform [LIN10]. Furthermore the registered association "Liquid Democracy e.V." works further on the extension and maintenance of the the software. Adhocracy strongly focusses on groups which from my point of view delimit the members of the Adhocracy community and prevents a free and global transposition of ideas and information. An often discussed and disabled feature from Adhocracy is "Delegate Voting" which enables members to delegates the decision-making of their vote to someone chosen by the member. With Delegate Voting a directed graph is established [TODO] pros and cons of delegate voting and why I've choose not to use it<br /><sub class="footnote">Further links: <a href="http://web.archive.org/web/20120721190627/http://code.adhocracy.de/en/adhocracy/was-ist-adhocracy/" target="_blank">what is Adhocracy</a>, <a href="https://de.wikipedia.org/wiki/Adhocracy" target="_blank">Adhocracy on Wikipedia</a></sub></p>
+<p><span style="text-decoration: underline;" id="subsection-x">LiquidFeedback<a id="subsection-liquidFeedback"></a></span><br />Initially developed by Andreas Nitsche, Jan Behrens, Axel Kistner and Bjoern Swierczek. LiquidFeedback has been used by Piratenpartei Deutschland. and evaluated by Sebastian Jabbusch, in his diploma thesis. It's one of the most developed and maintained projects I have found during my research phase. [TODO] what happened to LiquidFeedback exactly -&gt; talk to member of piratenparte<br /><sub class="footnote"> </sub></p>
+<p><span style="text-decoration: underline;">OffenesParlament.de</span><br />Project of the <a href="https://okfn.de/">Open Knowledge Foundation Deutschland</a> which campaign for&nbsp; open knowledge, open data, transparency and political participation. The project is led by Friedrich Lindeberg and supported by volunteers. OffenesParlament examine speeches and dialogs of the german parliament and makes them openly accessible. Furthermore it visualize the priority and tenure of topics dealt by the parliament.<br /><sub class="footnote">Further links: <a href="https://okfn.de/">Open Knowledge Foundation Deutschland</a>, <a href="http://offenesparlament.de/info/einleitung" target="_blank">OffenesParlament.de</a>, </sub><sub class="footnote"><a href="https://github.com/okfde/offenesparlament.de" target="_blank">Guthub Repository of OffenesParlament</a></sub></p>
+<p><span style="text-decoration: underline;">FragDenStaat.de<br /></span>FragDenStaat is like OffenesParlamant run by the Open Knowledge Foundation Deutschland and was nominated for the Grimme Online Award in the category "Spezial" in year 2015. The platform offers an simple procedure for citizens to make a request for information and documents&nbsp; to the public authorities in germany. The results are published on the platforms for everybody to be seen.</p>
+<p><span style="text-decoration: underline;">abgeordnetenwatch.de<br /></span>Enables citizens to place an public question at representatives of the german or european parliament, as well as many parliaments of german countries. In addition, announced results can be seen from named parliamentary decisions. Thus, the actual decisions of the parties move back to the front again and campaign promises into the background.&nbsp;<span id="autocomplete"><span id="autocomplete-delimiter">@</span><span id="autocomplete-searchtext"><span class="dummy"></span></span></span><a id="subsection-abgeordnetenwatch.DeEnablesCitizensToPlaceAnPublicQuestionAtRepresentativesOfTheGermanOrEuropeanParliament,AsWellAsManyParliamentsOfGermanCountries.InAddition,AnnouncedResultsCanBeSeenFromNamedParliamentaryDecisions.Thus,TheActualDecisionsOfThePartiesMoveBackToTheFrontAgainAndCampaignPromisesIntoTheBackground." title="subsection-abgeordnetenwatch.DeEnablesCitizensToPlaceAnPublicQuestionAtRepresentativesOfTheGermanOrEuropeanParliament,AsWellAsManyParliamentsOfGermanCountries.InAddition,AnnouncedResultsCanBeSeenFromNamedParliamentaryDecisions.Thus,TheActualDecisionsOfThePartiesMoveBackToTheFrontAgainAndCampaignPromisesIntoTheBackground."></a></p>
+</body>
+</html></section>
+<section id="6" data-type="4"><h1>Development of a prototype</h1><!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<p>[TODO]<a id="subsection-[TODO]@" title="subsection-[TODO]@"></a></p>
+</body>
+</html></section>
+<section id="7" data-type="4"><h1>Evaluation of prototype mechanics</h1>
+
+
+
+
+<p>[TODO]</p>
+
+</section>
+<div id="8" data-type="6"><h1>Bibliography</h1><table><tbody><tr><td name="bibliography-WIK-DD">[WIK-DD]</td><td>Wikipedia, Direkte Demokratie --- Wikipedia{,} Die freie Enzyklopädie, 2016, <a href="https://de.wikipedia.org/w/index.php?title=Direkte_Demokratie&amp;oldid=150652854">https://de.wikipedia.org/w/index.php?title=Direkte_Demokratie&amp;oldid=150652854</a>&gt;, <i>[Online; Stand 16. März 2016]</i>.</td></tr><tr><td name="bibliography-LIN10">[LIN10]</td><td>Friedrich Lindenberg, Konzeption und Erprobung einer Liquid Democracy Plattform anhand von Gruppendiskussionen, 2010, <a href="http://data.pudo.org/adhocracy/Bachelorarbeit%20Friedrich%20Lindenberg.pdf">http://data.pudo.org/adhocracy/Bachelorarbeit%20Friedrich%20Lindenberg.pdf</a>&gt;, <i>[Online; Requested at 16th of March 2016]</i>.</td></tr><tr><td name="bibliography-EHR05">[EHR05]</td><td>Stephan Ehrler, Die Basisdemokratie der Grünen Deutschlands, 2005, <a href="http://socio.ch/movpar/t_ehrler.htm">http://socio.ch/movpar/t_ehrler.htm</a>&gt;.</td></tr><tr><td name="bibliography-BIE05">[BIE05]</td><td>Ingrid van Biezen, The decline in party membership across Europe means that political parties need to reconsider how they engage with the electorate., 2015, <a href="http://blogs.lse.ac.uk/europpblog/2013/05/06/decline-in-party-membership-europe-ingrid-van-biezen/">http://blogs.lse.ac.uk/europpblog/2013/05/06/decline-in-party-membership-europe-ingrid-van-biezen/</a>&gt;.</td></tr><tr><td name="bibliography-WELCH05">[WELCH05]</td><td>Welch, Eric W. and Hinnant, Charles C. and Moon, M. Jae, Linking Citizen Satisfaction with E-Government and Trust in Government, 2005.</td></tr><tr><td name="bibliography-WELCH03">[WELCH03]</td><td>E. W. Welch and C. C. Hinnant, Internet use, transparency, and interactivity effects on trust in government, <i>System Sciences, 2003. Proceedings of the 36th Annual Hawaii International Conference on</i>, 2003.</td></tr><tr><td name="bibliography-10.2307/J.CTT5HHGVW">[10.2307/J.CTT5HHGVW]</td><td>Robert E. Kraut, Paul Resnick, Sara Kiesler, Moira Burke, Yan Chen, Niki Kittur, Joseph Konstan, Yuqing Ren, John Riedl, Building Successful Online Communities: Evidence-Based Social Design, <i>MIT Press</i>, 2011, <a href="http://www.jstor.org/stable/j.ctt5hhgvw">http://www.jstor.org/stable/j.ctt5hhgvw</a>&gt;.</td></tr><tr><td name="bibliography-PREECE09">[PREECE09]</td><td>Preece, J., &amp; Shneiderman, B., The Reader-to-Leader Framework: Motivating technology-mediated social participation., 2009.</td></tr><tr><td name="bibliography-LEWIN51">[LEWIN51]</td><td>Lewin, K., Field theory in social science, <i>New York.: Harper &amp; Row</i>, 1951.</td></tr></tbody></table></div>
+<section id="9" data-type="4"><h1>Link Types</h1>
+
+
+
+
+<table>
+<tbody>
+<tr>
+<td>Link type</td>
+<td>Linkable</td>
+<td>Printed</td>
+</tr>
+<tr>
+<td>Article or Book</td>
+<td><a href="[LIN10]">[LIN10]</a></td>
+<td>[LIN10]</td>
+</tr>
+<tr>
+<td>Webpage used in thesis</td>
+<td><a href="[LIN10]">[LIN10]</a></td>
+<td>[LIN10]</td>
+</tr>
+<tr>
+<td>Webpage for further information</td>
+<td>area in chapter at the end: Code&nbsp;<a href="link to code">link to code</a></td>
+<td><span>area in chapter at the end: Code&nbsp;</span>link to code</td>
+</tr>
+<tr>
+<td>Chapter</td>
+<td><a href="LiquidFeedback">LiquidFeedback</a></td>
+<td>LiquidFeedback (Chapter x)</td>
+</tr>
+</tbody>
+</table>
+
+</section>
