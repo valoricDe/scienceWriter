@@ -20,7 +20,7 @@ const base = config.base(
 	paths
 );
 
-if (TARGET === 'server') {
+//if (TARGET === 'server') {
 	module.exports = merge(
 		base,
 		config.dev(
@@ -29,11 +29,11 @@ if (TARGET === 'server') {
 			html
 		)
 	);
-} else if (TARGET === 'build') {
+/*} else if (TARGET === 'build') {
 	module.exports = merge(
 		base,
 		config.prod(
 			html
 		)
 	);
-}
+}*/
