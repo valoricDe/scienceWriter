@@ -9,7 +9,13 @@
 		"allowSyntheticDefaultImports": true,
 
 		"noFallthroughCasesInSwitch": true,
-		"moduleResolution": "node"
+		"moduleResolution": "node",
+      "typeRoots": [
+        "node_modules/@types"
+      ],
+      "types": [
+        "node"
+        ]
 	},
 	"exclude": [
 		"node_modules",

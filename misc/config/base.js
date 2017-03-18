@@ -10,6 +10,7 @@ module.exports = (project, paths) => {
 			path.join(paths.scripts.path, paths.scripts.file),
 			path.join(paths.styles.path, paths.styles.file),
 		],
+		debug: true,
 		output: {
 			path: paths.build.path,
 			filename: paths.build.files.script,
