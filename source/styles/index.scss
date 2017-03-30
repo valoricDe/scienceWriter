@@ -1,9 +1,12 @@
 @import 'partials/mixins';
 @import 'partials/variables';
+@import 'partials/_normalize.scss';
+@import 'partials/_fonts.scss';
 @import 'partials/content';
 @import 'partials/common';
 @import 'partials/autocomplete';
 @import 'partials/tinymce';
+@import 'partials/print';
 
 html,
 body,
@@ -32,4 +35,18 @@ h3 {
 	margin-block-start: 1em;
 	margin-block-end: .3em;
 	text-decoration: underline;
+}
+
+a {
+	text-decoration: none;
+}
+
+section {
+	padding-bottom: 0.5em;
+
+	p {
+		margin-bottom: 0.5em;
+	}
+
+	ul { margin-top: 0.5em;}
 }

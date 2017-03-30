@@ -1,0 +1,287 @@
+section {
+	//page-break-before: always;
+	counter-reset: footnote figurenum tablenum;
+
+	a {color: rgb(80, 80, 80);}
+}
+
+/* Chapter counter */
+body {
+	counter-reset: h1;
+}
+
+.Chapter h1, .Appendix h1, .Bibliography h1 {
+	string-set: doctitle content();
+}
+
+.Chapter, .Appendix, .Bibliography {
+	counter-reset: h2;
+
+	h1:before {counter-increment: h1; content: counter(h1) ". "}
+	h2:before {counter-increment: h2; content: counter(h1) "." counter(h2) ". "}
+
+	h1.nocount:before, h2.nocount:before, h3.nocount:before, h4.nocount:before, h5.nocount:before, h6.nocount:before { content: ""; counter-increment: none }
+}
+
+.Chapter {
+	h2 {counter-reset: h3}
+	h3 {counter-reset: h4}
+	h4 {counter-reset: h5}
+	h5 {counter-reset: h6}
+
+	h3:before {counter-increment: h3; content: counter(h1) "." counter(h2) "." counter(h3) ". "}
+	h4:before {counter-increment: h4; content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) ". "}
+	h5:before {counter-increment: h5; content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) ". "}
+	h6:before {counter-increment: h6; content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6) ". "}
+}
+
+/* Increment and display figure counter */
+figcaption:before {
+	counter-increment: figurenum;
+	content: counter(h1) "-" counter(figurenum) ". ";
+}
+
+table caption:before {
+	counter-increment: tablenum;
+	content: counter(h1) "-" counter(tablenum) ". ";
+}
+
+.Table.of.contents [href]::after {
+	display: inline;
+	float: none;
+	content: " " leader(' . ') " " target-counter(attr(href), page);
+}
+
+.Bibliography tr td:first-child {
+	text-align: center;
+}
+
+.fn::footnote-call {
+	content: counter(footnote);
+	font-size: 9pt;
+	vertical-align: super;
+	line-height: none;
+}
+
+.fn::footnote-marker {
+	font-weight: bold;
+}
+
+.content__sectionWrapper:after {
+	content: " ";
+	display: block;
+	height: 1.2px;
+	border-left: 5px solid #e8e8e8;
+	border-right: 5px solid #e8e8e8;
+	position: relative;
+	top: 0.2px;
+	margin-left: -0.2px;
+	margin-right:  -0.4px;
+}
+
+
+
+@media print {
+	html, body {
+		font-family: 'Open Sans';
+		font-size: 10pt;
+		line-height: 1.7em;
+	}
+
+	.content {
+		padding: 0;
+	}
+
+	.page-break {
+		visibility: hidden;
+		page-break-after: always;
+	}
+
+	figure {
+		page-break-inside: avoid;
+	}
+
+	/*
+ * Don't show links for images, or javascript/internal links
+ */
+
+	.footnote {
+		display: block;
+		footnote-style-position: inside;
+		font-size: 8pt;
+		line-height: 12pt;
+		float: footnote;
+		counter-increment: footnote;
+	}
+
+	a[href]:after {
+		display: block;
+		footnote-style-position: inside;
+		font-size: 8pt;
+		line-height: 12pt;
+		content: " " attr(href);
+		float: footnote;
+		counter-increment: footnote;
+	}
+	abbr[title]:after {
+		content: " (" attr(title) ")";
+	}
+
+	.ir a:after,
+	a[href^="javascript:"]:after,
+	a[href^="#"]:after {
+		display: inline;
+		float: none;
+		content: "";
+	}
+
+	/*a[href^="#"]::after {
+		display: inline;
+		float: none;
+		content: " (Page " target-counter(attr(href), page) ")";
+	}*/
+	a[href^="localhost"]::after, a[href^="http://localhost"]::after,
+	a[href^="#glossar"]::after, a[href^="#bibliography"]::after, .Bibliography a[href]:after {
+		display: inline;
+		float: none;
+		content: "";
+	}
+
+	.Cover {
+		visibility: hidden;
+	}
+
+	.Cover section {
+		visibility:visible;
+	}
+//.content__customToolbarTitleRight
+	.drawer, .mainAppBar {
+		display: none !important;
+	}
+
+	a.mce-item-anchor {
+		width:0 !important; height:0 !important;
+		line-height:0 !important;
+		border: 0;
+		display: block;
+		visibility: hidden;
+	}
+
+	.content__wrapper {
+		margin-left: 0 !important;
+	}
+
+	.content__customToolbarTitle, .content__customToolbarTitleRight {
+		color: black !important;
+	}
+
+	.mce-visualblocks * {
+		padding-top: 0;
+		border: 0;
+		margin-left: 0;
+		background: none;
+	}
+
+	.mce-pagebreaks {
+		page-break-before: avoid;
+		page-break-after: always;
+	}
+
+	.content__sectionWrapper {
+		page-break-before: auto;
+		orphans: 2;
+		widows: 2;
+	}
+
+	h1, h2, h3, h4, h5, h6, .content__customToolbar {
+		page-break-inside: avoid;
+		page-break-after: avoid;
+	}
+	.content__customToolbar, pre, blockquote {
+		page-break-inside: avoid;
+	}
+
+	header {
+		counter-reset: page 0 pages 0;
+	}
+
+
+	.Table.of.contents a > div {
+		max-width: 94%;
+	}
+
+	.Table.of.contents a div {
+		display: inline-block;
+	}
+
+	/*.printpagenumber ol a::after,
+	#toc ol ol a::after {
+		content: " " leader(' . ') " " target-counter(attr(data-href), page);
+	}*/
+
+	@page :first {
+		margin-top: 1.5cm;
+		margin-bottom: 1cm;
+		margin-left: 1cm;
+		margin-right: 1cm;
+	}
+
+	@page :left {
+		margin-top: 2cm;
+		margin-bottom: 2cm;
+		margin-left: 2cm;
+		margin-right: 3cm;
+	}
+
+	@page :right {
+		margin-top: 2cm;
+		margin-bottom: 2cm;
+		margin-left: 3cm;
+		margin-right: 2cm;
+	}
+
+	@page{
+
+		@top-right {
+			font-family: 'Open Sans';
+			content:  string(doctitle);
+			font-size: 9pt;
+			color: #333;
+			margin-top: 1cm;
+		}
+
+		@bottom-left {
+			font-family: 'Open Sans';
+			border-top: .25pt solid #666;
+			content: "A knowledge base tailored for politicians and citizens";
+			font-size: 9pt;
+			color: #333;
+			margin-bottom: 1cm;
+		}
+
+		@bottom-right {
+			font-family: 'Open Sans';
+			border-top: .25pt solid #666;
+			content: "Page " counter(page) " of " counter(pages);
+			font-size: 9pt;
+			margin-bottom: 1cm;
+		}
+
+		//noinspection ALL
+		@footnotes {
+			border-top: 0.25pt solid #666;
+			padding-top:2px;
+			padding-bottom:2px;
+		}
+	}
+
+	@page:first {
+		@bottom-right {
+			content: normal;
+		}
+
+		@bottom-left {
+			content: normal;
+		}
+	}
+}

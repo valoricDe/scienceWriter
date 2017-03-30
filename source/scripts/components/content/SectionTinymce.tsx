@@ -42,15 +42,15 @@ export default class SectionTinymce extends React.Component<ISectionTinymce, {}>
 							// all: advlist,autolink,colorpicker,contextmenu,image,imagetools,layer,tabfocus,textpattern,wordcount,codesample,save,textcolor,anchor,charmap,code,fullpage,fullscreen,hr,insertdatetime,link,media,nonbreaking,pagebreak,paste,preview,print,searchreplace,table,template,visualblocks,visualchars
 
 							// importcss could be usefull
-							'advlist lists autolink colorpicker contextmenu image imagetools layer tabfocus textpattern wordcount', // autoresize without menu and toolbar entry
+							'advlist lists autolink colorpicker contextmenu image imagetools tabfocus textpattern wordcount', // autoresize without menu and toolbar entry
 							'textcolor', // codesample save with toolbar button
 							'anchor charmap code fullpage fullscreen hr insertdatetime link media nonbreaking pagebreak paste preview print searchreplace table template visualblocks visualchars', // with menu and toolbar entry
-							'mention localautosave', // external plugins asciimath4 localautosave
+							'mention', // external plugins asciimath4 localautosave
             ],
 						external_plugins: {
 							//'asciimath4': '/vendor/asciimath-tinymce4/plugin.js',
 							'mention': 'vendor/tinyMCE-mention/mention/plugin.js',
-							'localautosave' : 'vendor/TinyMCE-LocalAutoSave/localautosave/plugin.min.js'
+							//'localautosave' : 'vendor/TinyMCE-LocalAutoSave/localautosave/plugin.min.js'
 						},
 						menu : { // this is the complete default configuration
 						        file   : {title : 'File'  , items : 'newdocument'},
@@ -61,7 +61,7 @@ export default class SectionTinymce extends React.Component<ISectionTinymce, {}>
 						        table  : {title : 'Table' , items : 'inserttable tableprops deletetable | cell row column'},
 						        tools  : {title : 'Tools' , items : 'spellchecker code | formats'},
 						    },
-						toolbar: 'formatselect | bold italic underline | alignleft aligncenter alignjustify | bullist numlist | outdent indent | blockquote | removeformat | table hr link unlink pagebreak codesample asciimath4 | code visualblocks visualchars | undo redo fullscreen localautosave | save',
+						toolbar: 'formatselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist | outdent indent | blockquote | removeformat | table hr link unlink pagebreak codesample asciimath4 | code visualblocks visualchars | undo redo fullscreen | save',
 
 						// tinymce settings
 						//entity_encoding : "raw",
@@ -170,7 +170,8 @@ export default class SectionTinymce extends React.Component<ISectionTinymce, {}>
 							{ title: 'Blocks', items: [
 								{ title: 'p', block: 'p' },
 								{ title: 'div', block: 'div' },
-								{ title: 'pre', block: 'pre' }
+								{ title: 'pre', block: 'pre' },
+								{ title: 'code', block: 'code' },
 							] },
 							{ title: 'Containers', items: [
 								{ title: 'section', block: 'section', wrapper: true, merge_siblings: false },
@@ -181,8 +182,10 @@ export default class SectionTinymce extends React.Component<ISectionTinymce, {}>
 								{ title: 'figure', block: 'figure', wrapper: true },
 								{ title: 'toc', block: 'div', wrapper: false, attributes: {id: 'toc'} },
 								{ title: 'remark', block: 'div', classes: 'remark', attributes: {style: 'float: right; width: 300px;'}},
+								{ title: 'simple list', block: 'p', classes: 'indented'},
 							] },
 							{ title: 'Markers', items: [
+								{ title: 'inline code', inline: 'code' },
 								{ title: 'reference', inline: 'sup', classes: 'reference'},
 								{ title: 'footnote', inline: 'sub', classes: 'footnote'},
 								{ title: 'question', block: 'p', classes: 'alert question', wrapper: true  },
@@ -198,7 +201,7 @@ export default class SectionTinymce extends React.Component<ISectionTinymce, {}>
 						image_advtab: true,
 						save_enablewhendirty: true,
 						//save_onsavecallback: function (editor) { ajaxSave(editor, true); return false },
-						visualblocks_default_state: true,
+						visualblocks_default_state: false,
 						mentions: {
 							delay: 100,
 							delimiter: ['@'],
@@ -246,7 +249,8 @@ export default class SectionTinymce extends React.Component<ISectionTinymce, {}>
 					let node = editor.selection.getNode();
 
 					if(node.textContent.length > 2) {
-						if(headlineTagNames.indexOf(node.tagName) >= 0 && !node.querySelector('a')) {
+						// match directly headlines h1, h2... or contained nodes h1 span, ...
+						if(node.matches(headlineTagNames.map(h => h+','+h+' '+node.tagName).join(',')) && !node.querySelector('a')) {
 							let a = document.createElement("a");
 							a.title = a.id = 'subsection-'+camelize(node.textContent);
 							a.className = 'mce-item-anchor';

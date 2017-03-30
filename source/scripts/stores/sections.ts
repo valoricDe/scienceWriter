@@ -17,7 +17,8 @@ export class Sections implements Stores.ISections {
 
 	@computed get contentSections() {
 		return this.sections.filter((section: Models.ISection) => {
-			return section.type == SectionTypes.CHAPTER || section.type == SectionTypes.FIGURETOC || section.type == SectionTypes.BIBLIOGRAPHY
+			return section.type == SectionTypes.CHAPTER || section.type == SectionTypes.FIGURETOC ||
+				section.type == SectionTypes.BIBLIOGRAPHY || section.type == SectionTypes.APPENDIX
 		});
 	}
 

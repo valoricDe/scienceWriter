@@ -32,15 +32,14 @@ export default class SectionComponent extends React.Component<ISectionComponent,
 
 	public render():JSX.Element {
 		return (
-			<Paper className="content__sectionWrapper">
-				<Toolbar className="content__customToolbar">
-					<ToolbarGroup>
-						<ToolbarTitle text={this.props.section.title || ''} className="content__customToolbarTitle"/>
-					</ToolbarGroup>
-					<ToolbarGroup>
-						<ToolbarTitle text={SectionTypeMap[this.props.section.type]+' '+(this.props.section.index+1)} className="content__customToolbarTitleRight"/>
-					</ToolbarGroup>
-				</Toolbar>
+			<Paper className={"content__sectionWrapper "+SectionTypeMap[this.props.section.type]}>
+				<div className="content__customToolbar">
+					<p className="content__customToolbarTitleRight" style={{float: 'right'}}>{this.props.section.type == SectionTypes.CHAPTER ? <ToolbarTitle text={SectionTypeMap[this.props.section.type]+' '+(this.props.section.index-1)} className="content__customToolbarTitleRight"/> :  null }</p>
+					<h1 style={{float: 'left'}} id={"section-"+this.props.section.id} className="content__customToolbarTitle">
+						{this.props.section.title || ''}
+					</h1>
+					<div style={{clear: 'both', height:'0'}}></div>
+				</div>
 				<section name={"section-"+this.props.section.id}>
 					{(() => {
 						switch (this.props.section.type) {
@@ -48,10 +47,10 @@ export default class SectionComponent extends React.Component<ISectionComponent,
 								return <List>
 									{
 										this.props.sections.contentSections.map((s:ISection, i:number) => {
-											let chapters = [<ListItem className={'content__toc_sec'} key={s.id} primaryText={(i+1)+'. '+s.title} onTouchTap={() => location.href= "#section-"+ s.id}/>];
+											let chapters = [<ListItem className={'content__toc_sec'} key={s.id} primaryText={(i+1)+'. '+s.title} href={"#section-"+ s.id} onTouchTap={() => location.href= "#section-"+ s.id}/>];
 											for (let j = 0; j < s.subsections.length; j++) {
 												let subs = s.subsections[j];
-												chapters.push(<ListItem className={'content__toc_sub'+String((subs.num.length+1)/2)} key={subs.id} primaryText={(i+1)+'.'+subs.num+'. '+subs.title} onTouchTap={() => location.href= "#"+ subs.id}/>);
+												chapters.push(<ListItem className={'content__toc_sub'+String((subs.num.length+1)/2)} key={subs.id} primaryText={(i+1)+'.'+subs.num+'. '+subs.title} href={"#"+ subs.id} onTouchTap={() => location.href= "#"+ subs.id}/>);
 											}
 											return chapters;
 										})

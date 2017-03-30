@@ -9,6 +9,8 @@ import {Drawer} from "material-ui";
 
 import Content from './content';
 import Sidebar from "./sidebar";
+import {observer} from "mobx-react";
+import {observable} from "mobx";
 
 // Needed for onTouchTap
 // Check this repo:
@@ -17,7 +19,10 @@ injectTapEventPlugin();
 
 const lightMuiTheme = getMuiTheme(lightBaseTheme);
 
+@observer
 export default class App extends Component<Props.IApp, void> {
+	@observable sidebarOpen = true;
+
 	constructor(props) {
 		super(props);
 		this.props.sections.loadSections();
@@ -42,13 +47,19 @@ export default class App extends Component<Props.IApp, void> {
 						autoHideDuration={4000}
 						onRequestClose={this.props.appState.closeSnackBar}
 					/>
-					<Drawer open={true}>
-						<AppBar title="ScienceWriter" style={{marginBottom: '10px', backgroundColor: '#2d8ac7'}} />
+					<Drawer open={this.sidebarOpen} className="drawer">
+						<AppBar title="ScienceWriter" style={{marginBottom: '10px', backgroundColor: '#2d8ac7'}}
+								onLeftIconButtonTouchTap={() => {this.sidebarOpen = !this.sidebarOpen} }
+								onTitleTouchTap={() => {this.sidebarOpen = !this.sidebarOpen} }
+						/>
 						<Sidebar {...this.props}/>
 					</Drawer>
-					<div className="content__wrapper">
-						<AppBar title="" showMenuIconButton={false} style={{backgroundColor: '#2d8ac7'}}/>
-						{this.renderDevTools()}
+					<div className="content__wrapper" style={this.sidebarOpen ? {marginLeft: "256px"} : {marginLeft: "0"}}>
+						<AppBar title="" showMenuIconButton={false} style={{backgroundColor: '#2d8ac7'}}
+								onTitleTouchTap={() => {this.sidebarOpen = !this.sidebarOpen}}
+								className="mainAppBar"
+						/>
+						{this.sidebarOpen ? this.renderDevTools() : null}
 						<Content {...this.props} />
 					</div>
 				</div>
